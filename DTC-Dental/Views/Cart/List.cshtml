@@ -1,0 +1,52 @@
+﻿
+
+
+@model ServicesViewModel
+
+@{
+    ViewBag.Title = "Manage Cart";
+}
+
+@if (TempData["message"] != null)
+{
+    <h4 class="bg-info text-white text-center p-2">@TempData["message"]</h4>
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p></p>
+
+<div>
+    <form asp-action="Clear" method="post">    
+        <a asp-action="List" asp-controller="Visit" class="btn btn-primary">Select More Services</a>
+        <button type="submit" class="btn btn-primary">Clear Cart</button>
+        <a asp-action="Finalize" asp-controller="Cart" class="btn btn-primary">Finalize Visit</a>
+    </form>
+</div>
+
+<p></p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Service service in Model.Services)
+        {
+            <tr>
+                <td>@service.Description</td>
+                <td>$@service.Cost</td>
+                <td>
+                    <form asp-action="Delete" asp-controller="Cart" method="post">
+                        <input type="hidden" name="id" value="@service.ServiceID" />
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

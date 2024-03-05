@@ -1,0 +1,49 @@
+﻿
+
+@model Dentist
+@{
+    string title = ViewBag.Action + " Dentist";
+    ViewBag.Title = title;
+}
+
+@*Makes text boxes light red with a red border if data enetered in invalid*@
+<style>
+    .is-invalid {
+        border: 1px solid #dc3545;
+        background-color: #f8d7da;
+    }
+</style>
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Save" method="post">
+
+    @*uses CSS styling for validation and moves error messages by boxes instead of on top*@
+    <div class="row mb-3">
+        <label asp-for="FirstName" class="col-form-label col-md-2">First Name</label>
+        <div class="col">
+            <input asp-for="FirstName" class="form-control @(ViewData.ModelState["FirstName"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="LastName" class="col-form-label col-md-2">Last Name</label>
+        <div class="col">
+            <input asp-for="LastName" class="form-control @(ViewData.ModelState["LastName"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="HireDate" class="col-form-label col-md-2">Hire Date</label>
+        <div class="col">
+            <input asp-for="HireDate" class="form-control @(ViewData.ModelState["HireDate"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="HireDate" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="DentistID" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="List" class="btn btn-primary">Cancel</a>
+    <h1> </h1>
+</form>

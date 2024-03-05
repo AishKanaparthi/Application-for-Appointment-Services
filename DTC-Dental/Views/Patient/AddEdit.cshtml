@@ -1,0 +1,124 @@
+﻿
+
+@model Patient
+@{
+    string title = ViewBag.Action + " Patient";
+    ViewBag.Title = title;
+}
+
+@*Makes text boxes light red with a red border if data enetered in invalid*@
+<style>
+    .is-invalid {
+        border: 1px solid #dc3545;
+        background-color: #f8d7da;
+    }
+</style>
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Save" method="post">
+
+    @*uses CSS styling for validation and moves error messages by boxes instead of on top*@
+    <div class="row mb-3">
+        <label asp-for="FirstName" class="col-form-label col-md-2">First Name</label>
+        <div class="col">
+            <input asp-for="FirstName" class="form-control @(ViewData.ModelState["FirstName"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="LastName" class="col-form-label col-md-2">Last Name</label>
+        <div class="col">
+            <input asp-for="LastName" class="form-control @(ViewData.ModelState["LastName"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Address" class="col-form-label col-md-2">Address</label>
+        <div class="col">
+            <input asp-for="Address" class="form-control @(ViewData.ModelState["Address"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="City" class="col-form-label col-md-2">City</label>
+        <div class="col">
+            <input asp-for="City" class="form-control @(ViewData.ModelState["City"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="State" class="col-form-label col-md-2">State</label>
+        <div class="col">
+            <input asp-for="State" class="form-control @(ViewData.ModelState["State"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="State" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Zip" class="col-form-label col-md-2">Zip</label>
+        <div class="col">
+            <input asp-for="Zip" class="form-control @(ViewData.ModelState["Zip"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="Zip" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="DOB" class="col-form-label col-md-2">Date of Birth</label>
+        <div class="col">
+            <input asp-for="DOB" class="form-control @(ViewData.ModelState["DOB"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="DOB" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="SSN" class="col-form-label col-md-2">SSN</label>
+        <div class="col">
+            <input asp-for="SSN" class="form-control @(ViewData.ModelState["SSN"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="SSN" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Email" class="col-form-label col-md-2">Email</label>
+        <div class="col">
+            <input asp-for="Email" class="form-control @(ViewData.ModelState["Email"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Phone" class="col-form-label col-md-2">Phone</label>
+        <div class="col">
+            <input asp-for="Phone" class="form-control @(ViewData.ModelState["Phone"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+    </div>
+    @*creates a dropdown for minor status with yes indiacting true for the boolean value and no indicating false.*@
+    <div class="row mb-3">
+        <label asp-for="Minor" class="col-form-label col-md-2">Minor (dropdown)</label>
+        <div class="col">
+            <select asp-for="Minor" class="form-select @(ViewData.ModelState["Minor"]?.Errors.Any() == true ? "is-invalid" : "")">
+                <option value="" disabled selected>Select an option...</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <span asp-validation-for="Minor" class="text-danger"></span>
+        </div>
+    </div>
+    @*a dropdown of all patient fullnames and sets patientHOHID to the PatientID of the selected dropdown patient.*@
+    <div class="row mb-3">
+        <label asp-for="PatientHOHID" class="col-form-label col-md-2">Head of Household (dropdown)</label>
+        <div class="col">
+            <select asp-for="PatientHOHID" class="form-select"
+                    asp-items="@(ViewBag.Patients != null ? new SelectList(ViewBag.Patients, "PatientID", "FullName") : new SelectList(Enumerable.Empty<SelectListItem>()))">
+                <option value="">N/A</option>
+            </select>
+            <span id="error" style="color: red; display: none;">Please select an option.</span>
+        </div>
+        <div class="col">
+            <span asp-validation-for="PatientHOHID" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="PatientID" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="List" class="btn btn-primary">Cancel</a>
+    <h1> </h1>
+</form>

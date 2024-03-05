@@ -1,0 +1,36 @@
+﻿
+
+@model IEnumerable<Service>
+
+@{
+    ViewBag.Title = "Record Services";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Cost</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.Description</td>
+                <td>$@service.Cost</td>
+                <td>
+                    <form asp-action="Add" asp-controller="Cart" method="post">
+                        <button type="submit" class="btn btn-primary">
+                            Add to Cart
+                        </button>
+                        <input type="hidden" asp-for="@service.ServiceID" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

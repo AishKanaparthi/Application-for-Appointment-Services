@@ -1,0 +1,42 @@
+﻿
+
+@model IEnumerable<AppointmentType>
+
+@{
+    ViewBag.Title = "Manage Appointment Types";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var at in Model)
+        {
+            <tr>
+                <td>@at.AppointmentName</td>
+                <td>@at.Description</td>
+                <td>@at.Duration min</td>
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@at.AppointmentTypeID"
+                       class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Delete"
+                       asp-route-id="@at.AppointmentTypeID"
+                       class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add" class="btn btn-primary mb-3">Add Appointment Type</a>

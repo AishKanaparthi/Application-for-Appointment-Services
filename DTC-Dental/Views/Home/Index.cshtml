@@ -1,0 +1,34 @@
+﻿
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>DTC Dental Home</h1>
+<p>
+    Welcome to DTC Dental. This web application will allow users to track relevant
+    information for each patient (e.g., name, address, phone number, email, DOB, etc.).
+</p>
+
+<h2>Tabs</h2>
+<div class="list-group">
+    <a asp-controller="Home" asp-action="Index"
+       class="list-group-item">Home</a>
+    <a asp-controller="Home" asp-action="About"
+       class="list-group-item">About</a>
+    <a asp-controller="Patient" asp-action="List"
+       class="list-group-item">Patients</a>
+    <a asp-controller="Dentist" asp-action="List"
+       class="list-group-item">Dentists</a>
+    <a asp-controller="AppointmentType" asp-action="List"
+       class="list-group-item">Appointment Types</a>
+    <a asp-controller="Appointment" asp-action="List"
+       class="list-group-item">Appointments</a>
+    <a asp-controller="Service" asp-action="List"
+       class="list-group-item">Services</a>
+    <a asp-controller="Visit" asp-action="List"
+       class="list-group-item">Visits</a>
+    <a asp-controller="Cart" asp-action="List"
+       class="list-group-item">Cart</a>
+</div>
+<h1> </h1>

@@ -1,0 +1,42 @@
+﻿
+
+@model Service
+@{
+    string title = ViewBag.Action + " Service";
+    ViewBag.Title = title;
+}
+
+@*Makes text boxes light red with a red border if data enetered in invalid*@
+<style>
+    .is-invalid {
+        border: 1px solid #dc3545;
+        background-color: #f8d7da;
+    }
+</style>
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Save" method="post">
+
+    @*uses CSS styling for validation and moves error messages by boxes instead of on top*@
+    <div class="row mb-3">
+        <label asp-for="Description" class="col-form-label col-md-2">Description</label>
+        <div class="col">
+            <input asp-for="Description" class="form-control @(ViewData.ModelState["Description"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Cost" class="col-form-label col-md-2">Cost</label>
+        <div class="col">
+            <input asp-for="Cost" class="form-control @(ViewData.ModelState["Cost"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="Cost" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="ServiceID" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="List" class="btn btn-primary">Cancel</a>
+    <h1> </h1>
+</form>

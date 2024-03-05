@@ -1,0 +1,104 @@
+﻿
+
+@model Appointment
+@{
+    string title = ViewBag.Action + " Appointment Type";
+    ViewBag.Title = title;
+}
+
+@*Makes text boxes light red with a red border if data enetered in invalid*@
+<style>
+    .is-invalid {
+        border: 1px solid #dc3545;
+        background-color: #f8d7da;
+    }
+</style>
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Save" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    @*uses CSS styling for validation and moves error messages by boxes instead of on top*@
+    <div class="row mb-3">
+        <label asp-for="AppointmentDate" class="col-form-label col-md-2">Appointment Date</label>
+        <div class="col">
+            <input asp-for="AppointmentDate" class="form-control @(ViewData.ModelState["AppointmentDate"]?.Errors.Any() == true ? "is-invalid" : "")" type="date">
+            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+        </div>
+    </div>
+    @*a dropdown of all patient fullnames *@
+    <div class="row mb-3">
+        <label asp-for="PatientID" class="col-form-label col-md-2">Patient (dropdown)</label>
+        <div class="col">
+            <select asp-for="PatientID" class="form-select @(ViewData.ModelState["PatientID"]?.Errors.Any() == true ? "is-invalid" : "")"
+                    asp-items="@(ViewBag.Patients != null ? new SelectList(ViewBag.Patients, "PatientID", "FullName") : new SelectList(Enumerable.Empty<SelectListItem>()))">
+                <option value="">Select a patient...</option>
+            </select>
+        </div>
+        <div class="col">
+            <span asp-validation-for="PatientID" class="text-danger"></span>
+        </div>
+    </div>
+    @*a dropdown of all dentist fullnames *@
+    <div class="row mb-3">
+        <label asp-for="DentistID" class="col-form-label col-md-2">Dentist (dropdown)</label>
+        <div class="col">
+            <select asp-for="DentistID" class="form-select @(ViewData.ModelState["DentistID"]?.Errors.Any() == true ? "is-invalid" : "")"
+                    asp-items="@(ViewBag.Dentists != null ? new SelectList(ViewBag.Dentists, "DentistID", "FullName") : new SelectList(Enumerable.Empty<SelectListItem>()))">
+                <option value="">Select a dentist...</option>
+            </select>
+        </div>
+        <div class="col">
+            <span asp-validation-for="DentistID" class="text-danger"></span>
+        </div>
+    </div>
+    @*a dropdown of all appointment types*@
+    <div class="row mb-3">
+        <label asp-for="AppointmentTypeID" class="col-form-label col-md-2">Appointment Type (dropdown)</label>
+        <div class="col">
+            <select asp-for="AppointmentTypeID" class="form-select @(ViewData.ModelState["AppointmentTypeID"]?.Errors.Any() == true ? "is-invalid" : "")"
+                    asp-items="@(ViewBag.AppointmentTypes != null ? new SelectList(ViewBag.AppointmentTypes, "AppointmentTypeID", "AppointmentName") : new SelectList(Enumerable.Empty<SelectListItem>()))">
+                <option value="">Select an appointment type...</option>
+            </select>
+        </div>
+        <div class="col">
+            <span asp-validation-for="AppointmentTypeID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="StartTime" class="col-form-label col-md-2">Start Time (dropdown)</label>
+        <div class="col">
+            <select asp-for="StartTime" class="form-select @(ViewData.ModelState["StartTime"]?.Errors.Any() == true ? "is-invalid" : "")">
+                <option value="">Select an appointment type...</option>
+                <option value="@TimeSpan.FromHours(8)">8:00 AM</option>
+                <option value="@TimeSpan.FromHours(8).Add(TimeSpan.FromMinutes(30))">8:30 AM</option>
+                <option value="@TimeSpan.FromHours(9)">9:00 AM</option>
+                <option value="@TimeSpan.FromHours(9).Add(TimeSpan.FromMinutes(30))">9:30 AM</option>
+                <option value="@TimeSpan.FromHours(10)">10:00 AM</option>
+                <option value="@TimeSpan.FromHours(10).Add(TimeSpan.FromMinutes(30))">10:30 AM</option>
+                <option value="@TimeSpan.FromHours(11)">11:00 AM</option>
+                <option value="@TimeSpan.FromHours(11).Add(TimeSpan.FromMinutes(30))">11:30 AM</option>
+                <option value="@TimeSpan.FromHours(12)">12:00 PM</option>
+                <option value="@TimeSpan.FromHours(12).Add(TimeSpan.FromMinutes(30))">12:30 PM</option>
+                <option value="@TimeSpan.FromHours(13)">1:00 PM</option>
+                <option value="@TimeSpan.FromHours(13).Add(TimeSpan.FromMinutes(30))">1:30 PM</option>
+                <option value="@TimeSpan.FromHours(14)">2:00 PM</option>
+                <option value="@TimeSpan.FromHours(14).Add(TimeSpan.FromMinutes(30))">2:30 PM</option>
+                <option value="@TimeSpan.FromHours(15)">3:00 PM</option>
+                <option value="@TimeSpan.FromHours(15).Add(TimeSpan.FromMinutes(30))">3:30 PM</option>
+                <option value="@TimeSpan.FromHours(16)">4:00 PM</option>
+                <option value="@TimeSpan.FromHours(16).Add(TimeSpan.FromMinutes(30))">4:30 PM</option>
+                <option value="@TimeSpan.FromHours(17)">5:00 PM</option>
+            </select>
+        </div>
+        <div class="col">
+            <span asp-validation-for="StartTime" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="AppointmentID" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="List" class="btn btn-primary">Cancel</a>
+    <h1> </h1>
+</form>

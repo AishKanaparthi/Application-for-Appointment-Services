@@ -1,0 +1,42 @@
+﻿
+
+
+@model IEnumerable<Dentist>
+
+@{
+    ViewBag.Title = "Manage Dentists";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hire Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dentist in Model)
+        {
+            <tr>
+                <td>@dentist.FullName</td>
+                <td>@dentist.HireDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@dentist.DentistID"
+                       class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Delete"
+                       asp-route-id="@dentist.DentistID"
+                       class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add" class="btn btn-primary mb-3">Add Dentist</a>

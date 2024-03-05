@@ -1,0 +1,39 @@
+﻿
+
+@model VisitConfirmationViewModel
+
+@{
+    ViewBag.Title = "Visit Confirmation";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p></p>
+
+<p>Your visit for patient <strong>@Model.Patient</strong> by dentist <strong>@Model.Dentist</strong> was saved to the database.</p>
+
+<h4>Visit Details</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th style="text-align: right;">Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Service service in Model.Services)
+        {
+            <tr>
+                <td>@service.Description</td>
+                <td style="text-align: right;">$@service.Cost</td>
+            </tr>
+        }
+        <tr class="total-row">
+            <td colspan="2" style="text-align: right;"><strong>Order Total:</strong> $@Model.SubTotal</td>
+        </tr>
+    </tbody>
+</table>
+
+<a asp-action="Index" asp-controller="Home" class="btn btn-primary">Return Home</a>
+<p></p>
+

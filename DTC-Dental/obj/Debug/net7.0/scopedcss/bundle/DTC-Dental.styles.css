@@ -1,0 +1,57 @@
+/* _content/DTC-Dental/Views/Shared/_Layout.cshtml.rz.scp.css */
+body[b-qjqh9dgkzx] {
+    background-color: #F0FFFF;
+    font-family: Helvetica, Verdana, sans-serif;
+}
+
+p[b-qjqh9dgkzx] {
+    margin: 1em 0em;
+}
+
+nav[b-qjqh9dgkzx] {
+    margin: 1em 0em;
+}
+
+/* style the header elment */
+header[b-qjqh9dgkzx] {
+    background-image: url("../images/dtc-header-image.png");
+    background-size: cover;
+    background-color: #89CFF0;
+}
+
+/* style the footer element */
+footer[b-qjqh9dgkzx] {
+    background-image: url("../images/railside-footer-image.png");
+    background-size: cover;
+    background-color: #89CFF0;
+    padding: 3em 0em; /* first argument is top/bottom and second element is left/right */
+}
+
+/*	the company class is assigned to the h1 element that contains 
+	the company name in the header */
+.company[b-qjqh9dgkzx] {
+    color: #FDFFFF;
+}
+
+/*	the copyright class is assigned to the p element in the footer 
+	that contains the copyright statement */
+.copyright[b-qjqh9dgkzx] {
+    padding: 25px;
+    border: .5em solid #0275D8;
+    text-align: center;
+    background-color: #F0FFFF;
+    color: #0275D8;
+    width: 35%;
+    margin: auto;
+}
+
+
+label[b-qjqh9dgkzx] {
+    display: inline-block;
+    width: 10em;
+    padding-right: 1em;
+}
+
+/*div {
+    margin-bottom: .5em;
+}*/

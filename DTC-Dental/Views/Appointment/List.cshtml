@@ -1,0 +1,61 @@
+﻿
+
+@model IEnumerable<Appointment>
+
+
+@{
+    ViewBag.Title = "Manage Appointments";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Patient</th>
+            <th>Dentist</th>
+            <th>Appointment Type</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.AppointmentDate.ToShortDateString()</td>
+                <td>@appointment.Patient.FullName</td>
+                <td>@appointment.Dentist.FullName</td>
+                <td>@appointment.AppointmentType.AppointmentName</td>
+                <td>
+                    @{
+                        var formattedStartTime = DateTime.Today.Add(appointment.StartTime).ToString("h:mm tt");
+                    }
+                    @formattedStartTime
+                </td>
+                <td>
+                    @{
+                        var endTime = appointment.StartTime + TimeSpan.FromMinutes(appointment.AppointmentType.Duration);
+                        var formattedEndTime = DateTime.Today.Add(endTime).ToString("h:mm tt");
+                    }
+                    @formattedEndTime
+                </td>
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@appointment.AppointmentID"
+                       class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Delete"
+                       asp-route-id="@appointment.AppointmentID"
+                       class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add" class="btn btn-primary mb-3">Add Appointment</a>

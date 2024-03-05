@@ -1,0 +1,49 @@
+﻿
+
+@model AppointmentType
+@{
+    string title = ViewBag.Action + " Appointment Type";
+    ViewBag.Title = title;
+}
+
+@*Makes text boxes light red with a red border if data enetered in invalid*@
+<style>
+    .is-invalid {
+        border: 1px solid #dc3545;
+        background-color: #f8d7da;
+    }
+</style>
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Save" method="post">
+
+    @*uses CSS styling for validation and moves error messages by boxes instead of on top*@
+    <div class="row mb-3">
+        <label asp-for="AppointmentName" class="col-form-label col-md-2">Name</label>
+        <div class="col">
+            <input asp-for="AppointmentName" class="form-control @(ViewData.ModelState["AppointmentName"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="AppointmentName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Description" class="col-form-label col-md-2">Description</label>
+        <div class="col">
+            <textarea asp-for="Description" class="form-control @(ViewData.ModelState["Description"]?.Errors.Any() == true ? "is-invalid" : "")"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Duration" class="col-form-label col-md-2">Duration</label>
+        <div class="col">
+            <input asp-for="Duration" class="form-control @(ViewData.ModelState["Duration"]?.Errors.Any() == true ? "is-invalid" : "")">
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="AppointmentTypeID" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="List" class="btn btn-primary">Cancel</a>
+    <h1> </h1>
+</form>

@@ -1,0 +1,66 @@
+﻿<Properties StartupConfiguration="{C257CFDA-EE3C-4978-935E-04197E602625}|https">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.DTC-Dental PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DTC-Dental/Migrations/20231130232752_Initial.cs">
+    <Files>
+      <File FileName="DTC-Dental/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Cart/Confirmation.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Cart/Finalize.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Program.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/appsettings.json" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Controllers/AppointmentController.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Controllers/AppointmentTypeController.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Controllers/CartController.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Controllers/DentistController.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Controllers/PatientController.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Controllers/ServiceController.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Controllers/VisitController.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/Appointment.cs" Line="1" Column="2" />
+      <File FileName="DTC-Dental/Models/AppointmentType.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/CompletedService.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/DentalContext.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/Dentist.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/DTCSession.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/FinalizeVisistViewModel.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/Patient.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/Service.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/ServicesViewModel.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/SessionExtensions.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/Visit.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Models/VisitConfirmationViewModel.cs" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Appointment/AddEdit.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Appointment/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Appointment/List.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/AppointmentType/AddEdit.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/AppointmentType/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/AppointmentType/List.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Cart/List.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Dentist/AddEdit.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Dentist/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Dentist/List.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Home/About.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Patient/AddEdit.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Patient/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Patient/List.cshtml" Line="1" Column="2" />
+      <File FileName="DTC-Dental/Views/Service/AddEdit.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Service/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Service/List.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/Visit/List.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="DTC-Dental/Migrations/20231130232752_Initial.cs" Line="21" Column="29" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

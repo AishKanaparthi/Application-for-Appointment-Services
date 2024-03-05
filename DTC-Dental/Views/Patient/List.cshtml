@@ -1,0 +1,52 @@
+﻿=
+
+@model IEnumerable<Patient>
+
+@{
+    ViewBag.Title = "Manage Patients";
+}
+
+@if (TempData["message"] != null)
+{
+    <h4 class="bg-info text-white text-center p-2">@TempData["message"]</h4>
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>DOB</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var patient in Model)
+        {
+            <tr>
+                <td>@patient.FullName</td>
+                <td>@patient.Email</td>
+                <td>@patient.Phone</td>
+                <td>@patient.City</td>
+                <td>@patient.DOB</td>
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@patient.PatientID"
+                       class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Delete"
+                       asp-route-id="@patient.PatientID"
+                       class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add" class="btn btn-primary mb-3">Add Patient</a>

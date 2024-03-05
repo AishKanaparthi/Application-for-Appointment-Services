@@ -1,0 +1,49 @@
+﻿/*
+//  AUTHOR:     Arsh Momin and Marco Interial
+//  COURSE:     ISTM 415
+//  PROGRAM:    DTC-Dental Web App
+//  PURPOSE:    The DTCDentalSite adds CSS to web pages for additional styling
+//  HONOR CODE: On my honor, as an Aggie, I have neither given 
+//              nor received unauthorized aid on this academic work.
+*/
+
+/*CSS for the body of the web app*/
+body {
+    background-color: #FFFFFF;
+    font-family: Helvetica, Verdana, sans-serif;
+}
+
+/*CSS for nav bar (adds the DTC logo image to the top left of the nav bar and makes the navbar a custom color*/
+.navbar-brand {
+    background-image: url("../images/logo.png");
+    background-position: center;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+.custom-navbar-color {
+    background-color: #4E5357;
+}
+
+/*CSS for footer*/
+.copyright {
+    padding: 5px;
+    border: .5em solid #4E5357;
+    text-align: center;
+    background-color: #4E5357;
+    color: #FFFFFF;
+    width: 100%;
+    margin: auto;
+}
+
+/*CSS for about page (adds a colored box around about text and space between the box and the footer)*/
+.custom-bg-color {
+    background-color: #28a9e2;
+}
+.custom-margin {
+    margin-bottom: 20px; /* Adjust the value as needed to control the amount of space after the box */
+}
+
+.total-row {
+    background-color: darkgrey;
+}

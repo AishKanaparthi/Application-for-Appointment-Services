@@ -1,0 +1,68 @@
+﻿
+
+@model FinalizeVisitViewModel
+
+@{
+    ViewBag.Title = "Finalize Vist";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p></p>
+
+<form asp-action="Finalize" asp-controller="Cart" method="post">
+    <h4>Visit Overview</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th style="text-align: right;">Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Service service in Model.Services)
+            {
+                <tr>
+                    <td>@service.Description</td>
+                    <td style="text-align: right;">$@service.Cost</td>
+                </tr>
+            }
+            <tr class="total-row">
+                <td colspan="2" style="text-align: right;"><strong>Order Total:</strong> $@Model.SubTotal</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row mb-3">
+        <label class="col-form-label col-md-2">Dentist (dropdown)</label>
+        <div class="col">
+            <select name="SelectedDentistId" class="form-select">
+                <option value="" disabled>Select a dentist...</option>
+                @foreach (var dentist in ViewBag.Dentists)
+                {
+                    <option value="@dentist.DentistID">@dentist.FullName</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-form-label col-md-2">Patient (dropdown)</label>
+        <div class="col">
+            <select name="SelectedPatientId" class="form-select">
+                <option value="" disabled>Select a patient...</option>
+                @foreach (var patient in ViewBag.Patients)
+                {
+                    <option value="@patient.PatientID">@patient.FullName</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Visit</button>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Cancel Visit</a>
+    <a asp-action="List" asp-controller="Cart" class="btn btn-primary">Edit Visit Cart</a>
+
+    <p></p>
+</form>
+
